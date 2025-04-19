@@ -25,6 +25,7 @@ export async function POST(request: Request) {
     `,
     });
 
+    console.log("Raw AI Response:", questions);
     const interview = {
       role: role,
       type: type,
