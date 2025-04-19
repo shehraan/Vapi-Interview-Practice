@@ -125,18 +125,27 @@ const Agent = ({
         },
       });
     } else {
+      console.log("Starting interview call with existing questions...");
       let formattedQuestions = "";
-      if (questions) {
+      if (questions && questions.length > 0) {
         formattedQuestions = questions
           .map((question) => `- ${question}`)
           .join("\n");
+        console.log("Formatted questions:", formattedQuestions);
+      } else {
+        console.warn("No questions provided for interview call.");
       }
 
-      await vapi.start(interviewer, {
-        variableValues: {
-          questions: formattedQuestions,
-        },
-      });
+      try {
+        await vapi.start(interviewer, {
+          variableValues: {
+            questions: formattedQuestions,
+          },
+        });
+      } catch(error) {
+        console.error("Error starting Vapi call for interview:", error);
+        setCallStatus(CallStatus.INACTIVE);
+      }
     }
   };
 
