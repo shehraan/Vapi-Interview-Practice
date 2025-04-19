@@ -1,0 +1,44 @@
+## Firebase Setup Instructions for PrepWise App
+
+The application requires proper Firebase credentials to work correctly. There are two issues that need to be fixed:
+
+1. **Firebase Service Account**: The FIREBASE_CLIENT_EMAIL and FIREBASE_PROJECT_ID in your .env.local file are not valid.
+
+2. **Authentication Flow**: The sign-in process isn't working properly.
+
+### How to Fix:
+
+1. **Generate a New Firebase Service Account Key**:
+   - Go to the Firebase Console (https://console.firebase.google.com/)
+   - Select your project "ai-mock-interviews-ae40a"
+   - Go to Project Settings > Service accounts
+   - Click "Generate new private key"
+   - This will download a JSON file with valid credentials
+
+2. **Update Your Environment Variables**:
+   - Open the downloaded JSON file
+   - In your .env.local file, update the following variables:
+     ```
+     FIREBASE_PROJECT_ID=your_project_id_from_json
+     FIREBASE_CLIENT_EMAIL=your_client_email_from_json
+     FIREBASE_PRIVATE_KEY="your_private_key_from_json"
+     ```
+   - Make sure to keep the quotes around the private key
+
+3. **Try Logging In with Valid Credentials**:
+   - If you haven't created a user yet, create one with the Sign Up form
+   - Use a real email format and a password that's at least 3 characters
+
+4. **If Still Having Issues**:
+   - Check Firebase Authentication console to ensure users are being created
+   - Verify that Firebase Firestore security rules allow read/write access
+
+### Alternative Approach:
+
+If you continue having issues, you could modify the application to bypass Firebase authentication by creating a development mode:
+
+1. Edit auth.action.ts to create a mock user for development
+2. Update isAuthenticated() to always return true
+3. Create mock data for interviews in general.action.ts
+
+This will let you explore the application without needing Firebase credentials.

@@ -1,0 +1,32 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Helper function to check if user is authenticated
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    // Helper function to check if user is accessing their own document
+    function isUser(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    // Users collection rules
+    match /users/{userId} {
+      // Allow read if user is authenticated and accessing their own document
+      allow read: if isUser(userId);
+      
+      // Allow create if the user is authenticated and creating their own document
+      allow create: if isUser(userId) 
+        && request.resource.data.uid == userId
+        && request.resource.data.email == request.auth.token.email;
+      
+      // Allow update if user is authenticated and updating their own document
+      allow update: if isUser(userId);
+      
+      // Allow delete if user is authenticated and deleting their own document
+      allow delete: if isUser(userId);
+    }
+  }
+} 
