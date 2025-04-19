@@ -187,7 +187,7 @@ const AuthForm = ({ type }: { type: FormType }) => {
             width={38}
             style={{ width: 'auto', height: 'auto' }}
           />
-          <h2 className="text-primary-100">PrepWise</h2>
+          <h2 className="text-primary-100">Vapi Practice Interview\</h2>
         </div>
 
         <h3>Practice job interviews with AI</h3>

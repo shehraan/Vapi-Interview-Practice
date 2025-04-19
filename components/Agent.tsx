@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import Image from "next/image";
 import { useState, useEffect } from "react";
@@ -152,10 +152,10 @@ const Agent = ({
         <div className="card-interviewer">
           <div className="avatar">
             <Image
-              src="/ai-avatar.png"
+              src="/Interviewer-img-removebg-preview.png"
               alt="profile-image"
-              width={65}
-              height={54}
+              width={130}
+              height={90}
               className="object-cover"
             />
             {isSpeaking && <span className="animate-speak" />}
@@ -167,7 +167,7 @@ const Agent = ({
         <div className="card-border">
           <div className="card-content">
             <Image
-              src="/user-avatar.png"
+              src="/IMG-20250415-WA0005.jpg"
               alt="profile-image"
               width={539}
               height={539}
