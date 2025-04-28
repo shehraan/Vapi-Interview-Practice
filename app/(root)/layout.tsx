@@ -20,7 +20,7 @@ const Layout = async ({ children }: { children: ReactNode }) => {
             height={32}
             style={{ width: 'auto', height: 'auto' }}
           />
-          <h2 className="text-primary-100">Vapi Interview Practice</h2>
+          <h2 className="text-primary-100">AI Interview Practice</h2>
         </Link>
       </nav>
 

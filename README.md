@@ -10,7 +10,7 @@
     <img src="https://img.shields.io/badge/-Google_Gemini-blue?style=for-the-badge&logoColor=white&logo=google&color=4285F4" alt="google gemini" />
   </div>
 
-  <h3 align="center">Vapi Interview: AI Voice Agent Interview Practice Platform</h3>
+  <h3 align="center">AI Interview Practice: Conduct mock interviews with Voice Agents</h3>
 
    <div align="center">
      An app for practicing job interviews using AI voice agents.
